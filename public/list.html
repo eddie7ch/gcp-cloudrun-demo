@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="card list">
+    <a href="/" class="back">← New list</a>
+    <h1>📝 Your Todo List</h1>
+    <div class="share">
+      <input id="shareLink" readonly />
+      <button id="copyBtn">Copy link</button>
+    </div>
+    <form id="addForm">
+      <input id="todoText" placeholder="What needs doing?" autocomplete="off" required />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="todoList"></ul>
+    <p id="progress"></p>
+    <div id="celebration" class="celebration" hidden>🎉 All done! 🎉</div>
+  </main>
+  <script src="/list.js"></script>
+</body>
+</html>

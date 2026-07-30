@@ -1,15 +1,32 @@
 # gcp-cloudrun-demo
 
-A minimal Node.js/Express REST API, containerized and deployed to **Google Cloud Run** — built to demonstrate hands-on GCP hosting experience.
+A **shareable todo list app**: create a list, get a link, send it to anyone — no sign-up required. Built with Node.js/Express, a small vanilla-JS frontend, and SQLite for persistence, containerized and deployed to **Google Cloud Run**.
+
+## How it works
+
+- Visit `/`, click "Create a new list" and you're dropped onto a unique `/l/<id>` URL.
+- Share that URL with anyone (friends, roommates, teammates) — whoever has the link can add, check off, and delete items.
+- No accounts, no database setup on your end — it's just a link.
 
 ## Endpoints
 
-- `GET /` — service info
-- `GET /healthz` — health check
-- `GET /todos` — list todos (in-memory)
-- `POST /todos` — create a todo (`{ "text": "..." }`)
+- `GET /` — landing page (create a new list)
+- `GET /l/:id` — the todo list UI for a given list
+- `GET /api` — service info
+- `GET /health` — health check
+- `POST /api/lists` — create a new list, returns `{ id, url }`
+- `GET /api/lists/:id/todos` — list todos
+- `POST /api/lists/:id/todos` — add a todo (`{ "text": "..." }`)
+- `PATCH /api/lists/:id/todos/:todoId` — toggle done
+- `DELETE /api/lists/:id/todos/:todoId` — delete a todo
+
+## Persistence note
+
+Todos are stored in a local SQLite file (`data/todos.db`) using Node's built-in `node:sqlite` module (Node 22.5+, no native build step). This is great for a single always-on instance, but Cloud Run containers are ephemeral — data can be lost on redeploys, scale-to-zero, or when traffic is split across multiple instances. For durable multi-instance persistence, swap `lib/db.js` for a managed store like Firestore or Cloud SQL.
 
 ## Run locally
+
+Requires Node.js 22.5+ (for the built-in `node:sqlite` module).
 
 ```powershell
 npm install

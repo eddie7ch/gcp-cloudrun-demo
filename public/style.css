@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  padding: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  width: 100%;
+  max-width: 480px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.landing {
+  text-align: center;
+}
+
+.hint {
+  color: #777;
+  font-size: 0.9em;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1em;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: #5a67d8;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #667eea;
+  text-decoration: none;
+}
+
+.share {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.share input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.share button {
+  flex-shrink: 0;
+}
+
+#addForm {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#todoText {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+}
+
+#todoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#todoList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+#todoList li.done span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+#todoList li span {
+  flex: 1;
+}
+
+#todoList .delete {
+  background: transparent;
+  color: #e53e3e;
+  padding: 2px 8px;
+}
+
+#todoList .delete:hover {
+  background: #fed7d7;
+}
+
+#progress {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.celebration {
+  text-align: center;
+  font-size: 1.4em;
+  margin-top: 12px;
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 8px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  button {
+    padding: 10px 12px;
+  }
+}
